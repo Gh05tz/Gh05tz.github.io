@@ -1,8 +1,18 @@
+.navBar{
+    background: #e350f3;
+    padding: 0px;
+    margin: 0px;
+
+    
+    
+
+}
 .navBar ul{
     list-style-type: none;
     padding: 0;
     margin-top:0;
     display:flex;
+    max-height: 10vh;
 
     
     
@@ -11,9 +21,10 @@
 
 }
 .navBar ul li{
-    
     padding: 20px;
-
-
 }
 
+.navBar ul li img{
+    height: 100%;
+    image-rendering:crisp-edges;
+}
