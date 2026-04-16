@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     scroll-behavior: smooth;
-    font-family: poppins, sans-serif;
+    font-family: open;
 
 }
 
@@ -99,10 +99,26 @@
 
 }
 .welcome h3{
+    position: inherit;
+    left: -20%;
     font-size: 5vh;
 }
+.welcome h2{
+    position: inherit;
+    left: -30%;
+    font-size:4vh;
+}
 
+.welcome p{
+    position:inherit;
+    left: -10%;
+    margin-top:1vh;
+    font-size:2vh;
+}
 
+#scramble-name{
+    font-family:cursive;
+}
 .aboutme{
     padding: 100px 20px;
     text-align: center;
@@ -243,4 +259,16 @@
 .char {
     display: inline-block;
     white-space: pre;
+}
+
+
+.clicked{
+    position:fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.topWave{
+    position:absolute;
 }
