@@ -3,12 +3,13 @@ const nav = document.getElementById('navbar');
 
 window.onscroll = function() {
   
-  if (window.scrollY > 50) {
+  if (window.scrollY > 100) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
   }
 };
+
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$';
 
@@ -35,7 +36,7 @@ function scrambleText(el) {
                 span.textContent = ticks >= settle
                     ? target
                     : CHARS[Math.floor(Math.random() * CHARS.length)];
-                span.style.color = ticks >= settle ? '' : '#000000';
+                span.style.color = ticks >= settle ? '' : '#C7F9CC;';
                 if (ticks >= settle) clearInterval(iv);
                 ticks++;
             }, 50);

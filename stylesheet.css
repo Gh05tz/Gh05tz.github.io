@@ -5,6 +5,8 @@
     text-decoration: none;
     scroll-behavior: smooth;
     font-family: open;
+  
+    
 
 }
 
@@ -13,15 +15,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color:black;
+    background-color:#22577A;
     height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
+     box-sizing: border-box 20px;
+     
+    
+    
 }
 .navbar .header {
-    color: white;
+    color: #C7F9CC;
+;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -30,12 +37,14 @@
     transform: translate(-100%);
     display:flex;
     align-items: center;
+   
     
     
     
 }
 .navbar .header a{
-    color:white;
+    color:#C7F9CC;
+;
     margin-right:2vw;
     
 }
@@ -51,8 +60,16 @@
     vertical-align: middle;
     margin-right:2vw;
     image-rendering: auto;
+    border: none;
 
 
+}
+body {
+    background-color: #0f0f0f;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 .navbar ul {
     display: flex;
@@ -61,34 +78,47 @@
 .navbar ul li a {
     margin: 0 2vw;
     text-decoration: none;
-    color: white;
+    color: #C7F9CC;
+    transform-origin: center;
+
     font-size: 18px;
-    border: 5px solid white;
+    border: 0.4vw solid #C7F9CC;
     padding: 1vh 2vw;
     border-radius: 100px;
     background-color: transparent;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .navbar ul li a:hover  {
-    background-color: white;
-    color: black;
-    transform: scale(1.1);
+    background-color: #C7F9CC;;
+    color: #22577A;
+    transform: scale(1.5);
+   
 }
 
-/*
+
 .scrolled{
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    border-bottom: solid #C7F9CC;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 2px 2px 5vh #000000; 
+    transition: all ease 0.3s;
+    /*
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%);
+    */
 
 }
+/*
 .scrolled:hover{
     opacity: 1;
 }
 */
 .welcome {
+   
     
     padding: 1vh 2vw;
+    
     text-align: center;
     position: relative;
     height: 100vh;
@@ -96,17 +126,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:#C7F9CC;
+    
+
 
 }
+
+.line-divide {
+    margin-top: 1vh;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    background: #22577A;
+    padding: 10vh 1vw;
+    
+}
+
 .welcome h3{
     position: inherit;
     left: -20%;
     font-size: 5vh;
+    color:#C7F9CC;
 }
 .welcome h2{
     position: inherit;
     left: -30%;
     font-size:4vh;
+    color:#C7F9CC;
 }
 
 .welcome p{
@@ -114,6 +158,35 @@
     left: -10%;
     margin-top:1vh;
     font-size:2vh;
+    color:#C7F9CC;
+}
+.styled-hover {
+    position: relative;
+    cursor: help;
+  
+    
+    
+  
+}
+
+.styled-hover:hover::after {
+
+    content: attr(data-title);
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color:#C7F9CC;
+    white-space: nowrap;
+    z-index: 10;
+    font-size:20px;
+    
+   
+  
 }
 
 #scramble-name{
@@ -128,6 +201,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #C7F9CC;
 
 }
 
@@ -140,6 +214,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #C7F9CC;
 
 }
 
@@ -152,6 +227,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #C7F9CC;
 
 }
 
@@ -175,7 +251,7 @@
     list-style: none;
     max-width: 80vw;
     
-    
+
     
     
 }
@@ -200,7 +276,7 @@
     align-items: center;
     pointer-events: none;
     z-index: 0;
-    filter: brightness(0);
+    
 
 }
 
@@ -212,15 +288,18 @@
 .CubeBottem img{
     max-width: 175px;
     margin-top: 10px;
-    border: dotted white;
+    border: dotted #C7F9CC;
+
     
     
   
 }
 .CubeTop,.CubeBottem {
     max-width: 200px;
-	background: rgb(0, 0, 0, 0.7);
-	border: 5px solid rgb(0, 0, 0);
+	background: #22577A95;
+    
+	border: 5px solid #22577A;
+
     text-align: center;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -238,6 +317,9 @@
 .CubeTop,.CubeBottem a{
 	
     color:white;
+   
+    background: #22577A95;
+
 	height: 200px;
 }
 .CubeTop {
@@ -254,12 +336,9 @@
 .cube:hover {
 	-webkit-transform: rotateX(90deg);
 	transform: rotateX(90deg); 
+    
 }
 
-.char {
-    display: inline-block;
-    white-space: pre;
-}
 
 
 .clicked{
@@ -272,3 +351,4 @@
 .topWave{
     position:absolute;
 }
+
