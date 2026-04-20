@@ -45,7 +45,7 @@ function scrambleText(el) {
 }
 scrambleText(document.getElementById('scramble-name'));
 
-
+/*
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -130,3 +130,72 @@ window.addEventListener('scroll', () => {
 });
 
 
+*/
+class Skill {
+    constructor(skill, percent) {
+        this.skill = skill;
+        this.percent = percent;
+    }
+}
+
+const skills = [
+  // Programming Languages
+  new Skill("Python", 90),
+  new Skill("JavaScript", 70),
+  new Skill("Java", 35),
+
+  // Web Development
+  new Skill("Frontend Development (HTML, CSS)", 75),
+  new Skill("Responsive Web Design", 80),
+  new Skill("UI/UX Design Fundamentals", 70),
+  new Skill("DOM Manipulation", 75),
+  new Skill("CSS Animations & Transitions", 75),
+
+  // Programming Concepts
+  new Skill("Object-Oriented Programming (OOP)", 65),
+  new Skill("Algorithms & Problem Solving", 75),
+
+
+
+  // Tools & Technologies
+  new Skill("Git & GitHub", 85),
+  new Skill("VS Code", 80),
+  new Skill("Database Management", 60)
+];
+
+const skillContainer = document.getElementById('Skill-List');
+
+
+
+
+function getSkillLevel(score) {
+
+    if (score >= 85) return "Advanced";
+    if (score >= 65) return "Proficient";
+    if (score >= 40) return "Intermediate";
+    if (score >= 25) return "Basic";
+    return "Beginner";
+}
+skills.forEach(skill => {
+    const skillDiv = document.createElement('div');
+    skillDiv.innerHTML = `
+    <li>
+        <svg width="200" height="110" viewBox="0 0 200 110">
+            <path d="M 20 100 A 80 80 0 0 1 180 100"
+                  fill="none" stroke="#1a3a4a" stroke-width="12"/>
+            <path d="M 20 100 A 80 80 0 0 1 180 100"
+                  fill="none" stroke="#C7F9CC" stroke-width="12" stroke-linecap="round"
+                  stroke-dasharray="251" stroke-dashoffset="251"/>
+            <text x="100" y="90" text-anchor="middle" fill="#C7F9CC" font-size="24">
+                ${getSkillLevel(skill.percent)}
+            </text>
+        </svg>
+        <h5>${skill.skill}</h5>
+    </li>`;
+    skillContainer.appendChild(skillDiv);
+
+    const path = skillDiv.querySelectorAll('path')[1];
+    const offset = 251 - (251 * skill.percent / 100);
+    path.style.transition = "stroke-dashoffset 1.5s ease";
+    path.style.strokeDashoffset = offset;
+});
