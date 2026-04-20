@@ -145,7 +145,7 @@ const skills = [
   new Skill("Java", 35),
 
   // Web Development
-  new Skill("Frontend Development (HTML, CSS)", 75),
+  new Skill("Frontend Development (HTML, CSS)", 64),
   new Skill("Responsive Web Design", 80),
   new Skill("UI/UX Design Fundamentals", 70),
   new Skill("DOM Manipulation", 75),
