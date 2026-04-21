@@ -1,12 +1,15 @@
 
 const nav = document.getElementById('navbar');
-
+const welcome = document.querySelector('.welcome');
 window.onscroll = function() {
   
-  if (window.scrollY > 100) {
+  if (window.scrollY > 950) {
     nav.classList.add('scrolled');
+    welcome.style.visibility = "hidden";
   } else {
     nav.classList.remove('scrolled');
+
+    welcome.style.visibility = "visible";
   }
 };
 
@@ -198,4 +201,21 @@ skills.forEach(skill => {
     const offset = 251 - (251 * skill.percent / 100);
     path.style.transition = "stroke-dashoffset 1.5s ease";
     path.style.strokeDashoffset = offset;
+});
+
+
+const wrapper = document.querySelector('.accomplishment-wrapper');
+const track = document.querySelector('.accomplishment-track');
+
+window.addEventListener('scroll', () => {
+    const rect = wrapper.getBoundingClientRect();
+
+    const progress = -rect.top / (wrapper.offsetHeight - window.innerHeight);
+    const clamped = Math.min(Math.max(progress, 0), 1);
+
+    const cardWidth = track.children[0].offsetWidth;
+    const centerOffset = (window.innerWidth / 2) - (cardWidth / 2);
+    const scrollDistance = track.scrollWidth - window.innerWidth;
+
+    track.style.transform = `translateX(${centerOffset - (clamped * (scrollDistance + centerOffset))}px)`;
 });

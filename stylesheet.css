@@ -122,7 +122,7 @@
    
     
     padding: 1vh 2vw;
-    
+    padding-top: 0vh;
     text-align: center;
     position: relative;
     height: 100vh;
@@ -131,12 +131,24 @@
     justify-content: center;
     align-items: center;
     color:#000000;
+  
+  position: sticky;
+  top: 0;
+  z-index: 0; 
     
     
 
 
 }
-
+.welcome .topWave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    top: 1.5vh;
+}
 .line-divide {
     margin-top: 1vh;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -146,25 +158,26 @@
 }
 
 .welcome h3{
-    position: inherit;
+    position: relative;
     left: -20%;
     font-size: 5vh;
     color:#000000;
 }
 .welcome h2{
-    position: inherit;
+    position: relative;
     left: -30%;
     font-size:4vh;
     color:#000000;
 }
 
 .welcome p{
-    position:inherit;
+    position: relative;
     left: -10%;
     margin-top:1vh;
     font-size:2vh;
     color:#000000;
 }
+
 .styled-hover {
     position: relative;
     cursor: help;
@@ -221,6 +234,7 @@
     justify-content: center;
     align-items: center;
     color: #C7F9CC;
+    
 
 }
 
@@ -234,6 +248,7 @@
     justify-content: center;
     align-items: center;
     color: #C7F9CC;
+    background-color: white;
 
 }
 
@@ -355,7 +370,9 @@
 }
 
 .topWave{
-    position:absolute;
+    position: sticky;
+    top: 0;
+    z-index: 0; 
 }
 
 .waveclipTop{
@@ -434,3 +451,71 @@
     transform: translateX(500px);
 }
 */
+.accomplishment-wrapper {
+    height: 400vh;
+    flex-shrink: 0;
+    width: 100%;
+}
+.sticky {
+    position: sticky;
+    top: 20vh;
+    height: 100vh;
+    overflow: hidden;
+}
+.accomplishment-track{
+    display: flex;
+    width:max-content;
+    
+}
+
+.card {
+    padding-top:40vh;
+    width: 70vw;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C7F9CC;
+    font-size: 2rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:#22577A solid 10px;
+    background: #22577A95;
+    margin:20px;
+    padding-top: 0;
+    height: 75vh;
+
+    
+    
+}
+
+.card .image{
+    
+    width:50vw;
+    height:25vh;
+    margin:1vh;
+
+
+}
+
+.card h1{
+    font-size: 4vh;
+    margin:1vh;
+    max-width: 50vw;
+
+
+}
+.card h2{
+    font-size:3vh;
+    margin:20px;
+
+}
+
+
+
+.aboutme h1{
+    padding-top:100px;
+}
+
