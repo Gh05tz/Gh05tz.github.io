@@ -219,3 +219,47 @@ window.addEventListener('scroll', () => {
 
     track.style.transform = `translateX(${centerOffset - (clamped * (scrollDistance + centerOffset))}px)`;
 });
+
+
+
+const bgfill = document.getElementById('bgfill');
+const projectsSection = document.getElementById('projects');
+const projects = document.querySelectorAll('.project');
+let current_color = "red";
+const projectColors = [
+  '#1c5169',
+  '#a72150',
+  '#720000',
+];
+
+function getColor(i) {
+  return projectColors[i % projectColors.length];
+}
+const sectionObserver = new IntersectionObserver(
+  ([entry]) => {
+    bgfill.style.opacity = entry.isIntersecting ? '1' : '0';
+  },
+  { threshold: 0.01 }
+);
+sectionObserver.observe(projectsSection);
+window.addEventListener('scroll', () => {
+  const mid = window.innerHeight / 1.5;
+  let closestIndex = 0;
+  let closestDist = Infinity;
+
+  projects.forEach((p, i) => {
+    const rect = p.getBoundingClientRect();
+    const pMid = rect.top + rect.height / 2;
+    const dist = Math.abs(pMid - mid);
+    if (dist < closestDist) {
+      closestDist = dist;
+      closestIndex = i;
+    }
+  });
+
+  bgfill.style.backgroundColor = getColor(closestIndex);
+});
+
+
+bgfill.style.backgroundColor = getColor(0);
+bgfill.style.opacity = '0';

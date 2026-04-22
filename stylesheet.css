@@ -228,7 +228,6 @@
     padding: 100px 20px;
     text-align: center;
     position: relative;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -519,3 +518,28 @@
     padding-top:100px;
 }
 
+
+.project{
+    height: 75vh;
+    width:75vw;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    margin-bottom: 20vh;
+
+}
+
+.project a{
+    font-style: none;
+    text-decoration: none;
+}
+
+#bgfill {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, background-color 0.8s ease;
+}
