@@ -526,6 +526,7 @@
     top: 0;
     z-index: 0;
     margin-bottom: 20vh;
+    box-shadow: 2px 2px 5vh #000000; 
 
 
 }
@@ -535,7 +536,7 @@
     text-decoration: none;
     position: absolute;
 }
-.project img{
+.project .logo{
     position: absolute;
     left:5vw;
     width:15vw;
