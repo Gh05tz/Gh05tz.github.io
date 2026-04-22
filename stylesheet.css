@@ -527,13 +527,22 @@
     z-index: 0;
     margin-bottom: 20vh;
 
+
 }
 
 .project a{
     font-style: none;
     text-decoration: none;
+    position: absolute;
 }
+.project img{
+    position: absolute;
+    left:5vw;
+    width:15vw;
+    image-rendering: pixelated;
 
+
+}
 #bgfill {
     position: fixed;
     width: 100vw;
