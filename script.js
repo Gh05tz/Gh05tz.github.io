@@ -243,23 +243,30 @@ const sectionObserver = new IntersectionObserver(
 );
 sectionObserver.observe(projectsSection);
 window.addEventListener('scroll', () => {
-  const mid = window.innerHeight / 1.5;
-  let closestIndex = 0;
-  let closestDist = Infinity;
+    const mid = window.innerHeight / 1.5;
+    let closestIndex = 0;
+    let closestDist = Infinity;
 
-  projects.forEach((p, i) => {
-    const rect = p.getBoundingClientRect();
-    const pMid = rect.top + rect.height / 2;
-    const dist = Math.abs(pMid - mid);
-    if (dist < closestDist) {
-      closestDist = dist;
-      closestIndex = i;
+    projects.forEach((p, i) => {
+        const rect = p.getBoundingClientRect();
+        const pMid = rect.top + rect.height / 2;
+        const dist = Math.abs(pMid - mid);
+        if (dist < closestDist) {
+            closestDist = dist;
+            closestIndex = i;
+        }
+    });
+
+    // Check if we've scrolled past the last project
+    const lastProject = projects[projects.length - 1];
+    const lastRect = lastProject.getBoundingClientRect();
+
+    if (lastRect.bottom < 0) {
+        bgfill.style.backgroundColor = 'white';
+    } else {
+        bgfill.style.backgroundColor = getColor(closestIndex);
     }
-  });
-
-  bgfill.style.backgroundColor = getColor(closestIndex);
 });
-
 
 bgfill.style.backgroundColor = getColor(0);
 bgfill.style.opacity = '0';

@@ -237,19 +237,7 @@
 
 }
 
-.contact {
-    padding: 100px 20px;
-    text-align: center;
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #C7F9CC;
-    background-color: white;
 
-}
 
 .cube {
 	width:200px;
@@ -553,3 +541,206 @@
     pointer-events: none;
     transition: opacity 0.6s ease, background-color 0.8s ease;
 }
+
+.contact {
+    padding: 100px 20px;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #C7F9CC;
+    background-color: white;
+}
+
+.circle h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+    pointer-events: none;
+}
+
+.circle {
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+}
+
+.item {
+    --angle: calc(-90deg + var(--i) * 72deg);
+    --radius:20vw;
+
+    position: absolute;
+    left: calc(50% + var(--radius) * cos(var(--angle)));
+    top:  calc(50% + var(--radius) * sin(var(--angle)));
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.item:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.contact img {
+    height: 10vh;
+    transition: transform 0.2s ease;
+}
+.item span {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.4vh;
+    color: black;
+    white-space: nowrap;
+    background: rgba(34, 87, 122, 0.9);
+    color: #C7F9CC;
+    padding: 4px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.item:hover span {
+    opacity: 1;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;  /* adjust to sit just inside your icons */
+    height: 380px;
+    border-radius: 50%;
+    border: 2px dashed #22577A;
+    animation: spin 12s linear infinite;
+    pointer-events: none;
+}
+
+.circle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px;  /* slightly larger, spins opposite */
+    height: 420px;
+    border-radius: 50%;
+    border: 1px dotted #81a584;
+    animation: spin 20s linear infinite reverse;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.contact-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.contact-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 200px;
+    text-align: center;
+    color: black;
+}
+
+.contact-side h2 {
+    font-size: 2.2vh;
+    color: #22577A;
+    line-height: 1.4;
+}
+
+.contact-side p {
+    font-size: 1.6vh;
+    color: #444;
+    line-height: 1.5;
+}
+
+.side-line {
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, #22577A, transparent);
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #22577A;
+    color: #C7F9CC;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 1.6vh;
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #C7F9CC;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+
+
+.Contibution {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.Contibution ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.Contibution ul li {
+    font-size: 14px;
+    border: 1px solid #22577A;
+    border-radius: 8px;
+    padding: 4px 12px;
+    color: #C7F9CC;
+    background-color: #22577A95;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.Contibution ul li:hover {
+    background-color: #22577A;
+    border-color: #C7F9CC;
+}
+
