@@ -1,4 +1,3 @@
-
 const nav = document.getElementById('navbar');
 const welcome = document.querySelector('.welcome');
 window.onscroll = function() {
@@ -48,92 +47,6 @@ function scrambleText(el) {
 }
 scrambleText(document.getElementById('scramble-name'));
 
-/*
-let width = window.innerWidth;
-let height = window.innerHeight;
-
-const circleClass =  document.querySelector(".balls");
-circle = document.querySelector(".balls")
-circleClass.addEventListener('click', (event) => {
-  
-  circle.classList.add('clicked');
-
-  if (!circle.style.top) {
-    circle.style.top = "0px";
-  }
-
-});
-
-let circleHold = false;
-circleClass.addEventListener('mousedown', (event) => {
-    
-    const isHovered = circle.matches(':hover');
-    if(isHovered){
-        circleHold = true;
-    }
-    
-});
-let mx = 0
-let my = 0
-document.addEventListener('mousemove', (event) => {
-
-  mx = event.clientX;
-  my = event.clientY;
-
-});
-circleClass.addEventListener('mouseup',(event) =>{
-    circleHold = false
-});
-
-function isAtBottom(element) {
-  
-  const  rect = element.getBoundingClientRect();
-  return rect.bottom >= (window.innerHeight || document.documentElement.clientHeight);
-}
-let vx = 0;
-
-function animateCircle() {
-    let circleTop = parseInt(circle.style.top) || 0;
-    const rect = circle.getBoundingClientRect();
-    if(circleHold){
-        vx = 0;
-        circleTop = (my-50);
-        circle.style.top = circleTop+"px";
-        circle.style.left = (mx-50) + "px";
-    }else{
-        vx = Math.abs(vx) <= 0.5 ? 0 : vx;
-        if (circle.classList.contains('clicked')) {
-            
-            vx += 1;
-            circleTop += vx;
-            
-            const bottom = window.innerHeight;
-            if (rect.bottom >= bottom && vx > 0) {
-                circleTop = bottom - rect.height;
-                vx = -Math.abs(vx) * 0.5;
-                if (Math.abs(vx) < 1) {
-                    vx = 0;
-                }
-            }
-            circle.style.top = circleTop + "px";
-
-    }}
-
-    requestAnimationFrame(animateCircle);
-}
-
-requestAnimationFrame(animateCircle);
-
-window.addEventListener('scroll', () => {
-  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY;
-  const percentage = (scrolled / scrollableHeight) * 100;
-
-  console.log(`Scroll Percentage: ${Math.round(percentage)}%`);
-});
-
-
-*/
 class Skill {
     constructor(skill, percent) {
         this.skill = skill;
@@ -142,25 +55,20 @@ class Skill {
 }
 
 const skills = [
-  // Programming Languages
+ 
   new Skill("Python", 90),
   new Skill("JavaScript", 70),
   new Skill("Java", 35),
 
-  // Web Development
   new Skill("Frontend Development (HTML, CSS)", 64),
   new Skill("Responsive Web Design", 80),
   new Skill("UI/UX Design Fundamentals", 70),
   new Skill("DOM Manipulation", 75),
   new Skill("CSS Animations & Transitions", 75),
 
-  // Programming Concepts
   new Skill("Object-Oriented Programming (OOP)", 65),
   new Skill("Algorithms & Problem Solving", 75),
 
-
-
-  // Tools & Technologies
   new Skill("Git & GitHub", 85),
   new Skill("VS Code", 80),
   new Skill("Database Management", 60)
@@ -208,6 +116,8 @@ const wrapper = document.querySelector('.accomplishment-wrapper');
 const track = document.querySelector('.accomplishment-track');
 
 window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 600) return; // skip horizontal scroll on mobile
+
     const rect = wrapper.getBoundingClientRect();
 
     const progress = -rect.top / (wrapper.offsetHeight - window.innerHeight);
@@ -220,6 +130,12 @@ window.addEventListener('scroll', () => {
     track.style.transform = `translateX(${centerOffset - (clamped * (scrollDistance + centerOffset))}px)`;
 });
 
+// Clear JS transform if window is resized to mobile
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 600) {
+        track.style.transform = 'none';
+    }
+});
 
 
 const bgfill = document.getElementById('bgfill');
@@ -227,9 +143,10 @@ const projectsSection = document.getElementById('projects');
 const projects = document.querySelectorAll('.project');
 let current_color = "red";
 const projectColors = [
-  '#1c5169',
-  '#a72150',
-  '#720000',
+'#ffffff',
+  '#ffffff',
+  ' #ffffff',
+  
 ];
 
 function getColor(i) {
@@ -257,7 +174,6 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    // Check if we've scrolled past the last project
     const lastProject = projects[projects.length - 1];
     const lastRect = lastProject.getBoundingClientRect();
 
@@ -270,3 +186,94 @@ window.addEventListener('scroll', () => {
 
 bgfill.style.backgroundColor = getColor(0);
 bgfill.style.opacity = '0';
+
+
+
+const roles = ["Algorithms", "Web Design", "Game Development", "Artist"];
+
+const cycleRoles = () => {
+    const el = document.getElementById("role-tag");
+    let index = 0;
+
+    const setRole = () => {
+        el.classList.remove("visible");
+
+        setTimeout(() => {
+            el.textContent = `<${roles[index]}>`;
+            el.classList.add("visible");
+            index = (index + 1) % roles.length;
+        }, 400);
+    };
+
+    setRole();
+    setInterval(setRole, 2500);
+};
+
+cycleRoles();
+
+
+const terminalLines = [
+    { text: "whoami",                           type: "cmd"   },
+    { text: "Keegan Jones  //  Gh05tz",         type: "val"   },
+    { text: "",                                  type: "gap"   },
+    { text: "cat skills.txt",                   type: "cmd"   },
+    { text: "Python · JavaScript · Java",       type: "val"   },
+    { text: "HTML · CSS · Pygame",              type: "val"   },
+    { text: "",                                  type: "gap"   },
+    { text: "cat passions.txt",                 type: "cmd"   },
+    { text: "Game Dev · Web Design · Pixel Art",type: "val"   },
+    { text: "",                                  type: "gap"   },
+    { text: "status --check",                   type: "cmd"   },
+    { text: "Available for work",            type: "val"   },
+];
+
+const runTerminal = () => {
+    const body = document.getElementById("terminal-body");
+    let i = 0;
+
+    const cursor = document.createElement("span");
+    cursor.className = "t-cursor";
+
+    const typeLine = () => {
+        if (i >= terminalLines.length) {
+            body.appendChild(cursor);
+            return;
+        }
+
+        const { text, type } = terminalLines[i++];
+        const line = document.createElement("div");
+        line.className = "t-line";
+
+        if (type === "gap") {
+            body.appendChild(line);
+            setTimeout(typeLine, 200);
+            return;
+        }
+
+        const prefix = type === "cmd"
+            ? `<span class="t-key">❯ </span><span class="t-cmd">`
+            : `<span class="t-muted">  </span><span class="t-val">`;
+
+        let charIndex = 0;
+        line.innerHTML = prefix + "</span>";
+        body.appendChild(line);
+
+        const span = line.querySelector(type === "cmd" ? ".t-cmd" : ".t-val");
+
+        const typeChar = () => {
+            if (charIndex < text.length) {
+                span.textContent += text[charIndex++];
+                body.scrollTop = body.scrollHeight;
+                setTimeout(typeChar, 35);
+            } else {
+                setTimeout(typeLine, type === "cmd" ? 400 : 150);
+            }
+        };
+
+        typeChar();
+    };
+
+    typeLine();
+};
+
+runTerminal();

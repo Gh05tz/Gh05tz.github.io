@@ -30,7 +30,7 @@
 .navbar .header {
     color: #C7F9CC;
 ;
-    font-size: 24px;
+    font-size: 3vh;
     font-weight: bold;
     text-align: center;
     position: absolute;
@@ -78,6 +78,7 @@
 .navbar ul {
     display: flex;
     list-style: none;
+    max-width: 60vw;
 }
 .navbar ul li a {
     margin: 0 2vw;
@@ -85,7 +86,7 @@
     color: #C7F9CC;
     transform-origin: center;
 
-    font-size: 18px;
+    font-size: 3vh;
     border: 0.4vw solid #C7F9CC;
     padding: 1vh 2vw;
     border-radius: 100px;
@@ -431,13 +432,7 @@
    
 }
 
-/*
-.welcome img{
-    width:30vw;
-    position:absolute;
-    transform: translateX(500px);
-}
-*/
+
 .accomplishment-wrapper {
     height: 400vh;
     flex-shrink: 0;
@@ -506,7 +501,12 @@
     padding-top:100px;
 }
 
-
+.projects h2{
+    font-size: 10vh;
+    margin:5vh;
+    color:black;
+    font-family: cursive;
+}
 .project{
     height: 75vh;
     width:75vw;
@@ -515,6 +515,7 @@
     z-index: 0;
     margin-bottom: 20vh;
     box-shadow: 2px 2px 5vh #000000; 
+    color:white;
 
 
 }
@@ -523,14 +524,55 @@
     font-style: none;
     text-decoration: none;
     position: absolute;
+    color:white;
+
+
 }
+
 .project .logo{
     position: absolute;
-    left:5vw;
-    width:15vw;
+    left:3vw;
+    top:25vh;
+    width:20vw;
     image-rendering: pixelated;
 
 
+}
+
+
+
+.project .Description{
+    max-width: 50vw;
+    text-align: left;
+    font-size: 3vh;
+    line-height: 5vh;
+    position:absolute;
+    left:26vw;
+    color:white;
+    top:10vh;
+}
+
+
+.project-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 3vw;
+    padding: 10px 24px;
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 1.6vh;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.project-btn:hover {
+    background-color: #C7F9CC;
+    color: #22577A;
+    transform: scale(1.05);
 }
 #bgfill {
     position: fixed;
@@ -619,7 +661,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 380px;  /* adjust to sit just inside your icons */
+    width: 380px;  
     height: 380px;
     border-radius: 50%;
     border: 2px dashed #22577A;
@@ -633,7 +675,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 420px;  /* slightly larger, spins opposite */
+    width: 420px;
     height: 420px;
     border-radius: 50%;
     border: 1px dotted #81a584;
@@ -744,3 +786,475 @@
     border-color: #C7F9CC;
 }
 
+
+.status-badge {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 1.4vh;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    z-index: 10;
+}
+
+.completed {
+    background-color: #1a3a2a;
+    color: #C7F9CC;
+    border: 1px solid #C7F9CC;
+}
+
+.in-progress {
+    background-color: #3a3010;
+    color: #ffe066;
+    border: 1px solid #ffe066;
+}
+
+.talabro-card {
+    width: 18vw;
+    height: 28vh;
+    background: #f5e6c8;
+    border: 3px solid #1a1a1a;
+    border-radius: 12px;
+    position: absolute;
+    left: 3vw;
+    top: 50%;
+    transform: translateY(-50%) rotate(-5deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0px #1a1a1a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Courier New', monospace;
+    image-rendering: pixelated;
+}
+
+.talabro-card:hover {
+    transform: translateY(-50%) rotate(0deg) scale(1.05);
+    box-shadow: 6px 6px 0px #1a1a1a;
+}
+
+.talabro-card .corner {
+    position: absolute;
+    font-size: 1.4vh;
+    font-weight: bold;
+    color: #8b0000;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.talabro-card .corner.tl { top: 8px; left: 10px; }
+.talabro-card .corner.br { bottom: 8px; right: 10px; transform: rotate(180deg); }
+
+.talabro-card .card-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.talabro-card .card-title {
+    font-size: 2.2vh;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 0.15em;
+}
+
+.talabro-card .card-suit {
+    font-size: 2vh;
+    color: #8b0000;
+    letter-spacing: 0.2em;
+}   
+
+.suit-edge {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 2vh;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+.suit-edge.top,
+.suit-edge.bottom {
+    color: #ffaaaa;
+}
+.suit-edge.left,
+.suit-edge.right {
+    color: #ffaaaa;
+}
+
+.suit-edge.top {
+    top: 6px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.suit-edge.bottom {
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.suit-edge.left {
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+}
+
+.suit-edge.right {
+    right: 6px;
+    top: 0;
+    bottom: 0;
+    writing-mode: vertical-lr;
+    display: flex;
+    align-items: center;
+}
+
+#role-tag {
+    position: relative;
+    left: -20%;
+    font-size: 3vh;
+    font-family: 'Courier New', monospace;
+    color: #22577A;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    margin-top: 1vh;
+}
+
+#role-tag.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.terminal {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28vw;
+    background: #0d0d0d;
+    border: 1px solid #22577A;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(34,87,122,0.4);
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.terminal-bar {
+    background: #1a1a1a;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid #22577A;
+}
+
+.t-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.t-title {
+    margin-left: 8px;
+    font-size: 1.4vh;
+    color: #888;
+}
+
+.terminal-body {
+    padding: 16px;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.t-line {
+    font-size: 1.5vh;
+    color: #C7F9CC;
+    white-space: pre;
+}
+
+.t-line .t-key   { color: #22577A; }
+.t-line .t-val   { color: #C7F9CC; }
+.t-line .t-cmd   { color: #febc2e; }
+.t-line .t-muted { color: #555; }
+
+.t-cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.6vh;
+    background: #C7F9CC;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+
+
+/* ============================================
+   RESPONSIVE DESIGN — paste at bottom of stylesheet.css
+   Breakpoints: tablet ≤ 900px | mobile ≤ 600px
+   ============================================ */
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+
+  /* Navbar */
+  .navbar ul li a {
+    font-size: 14px;
+    padding: 0.6vh 1.2vw;
+    border-width: 0.3vw;
+  }
+  .navbar .header { font-size: 18px; }
+  .navbar .header img { height: 4vh; }
+
+  /* Welcome: remove left offsets, center everything */
+  .welcome h2,
+  .welcome h3,
+  .welcome p,
+  #role-tag {
+    position: static;
+    left: unset;
+    text-align: center;
+  }
+
+  /* Terminal */
+  .terminal {
+    position: static;
+    transform: none;
+    width: 85vw;
+    margin: 3vh auto 0;
+  }
+
+  /* Projects */
+  .project {
+    width: 90vw;
+    height: auto;
+    min-height: unset;
+    padding: 6vh 5vw 8vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .project .logo {
+    position: static;
+    width: 30vw;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 2vh auto;
+    display: block;
+  }
+  .project .Description {
+    position: static;
+    max-width: 100%;
+    font-size: 2vh;
+    line-height: 3.5vh;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .Contibution {
+    position: static;
+    align-items: flex-start;
+    margin-top: 2vh;
+  }
+  .Contibution ul { justify-content: flex-start; }
+
+  /* Skills */
+  #Skill-List li { width: 170px; }
+
+  /* Certifications */
+  .cube,
+  .cube-container,
+  .CubeTop,
+  .CubeBottem {
+    width: 160px;
+    height: 160px;
+  }
+  .CubeTop    { transform: translateZ(80px); }
+  .CubeBottem { transform: rotateX(-90deg) translateZ(-80px); }
+  .CubeBottem img { max-width: 140px; }
+
+  /* Accomplishments */
+  .card { width: 80vw; height: auto; min-height: 50vh; padding: 4vh 4vw; }
+  .card .image { width: 60vw; height: auto; }
+  .card h1 { font-size: 2.5vh; }
+  .card h2 { font-size: 2vh; }
+
+  /* Contact */
+  .circle { width: 70vw; height: 60vh; }
+  .item { --radius: 27vw; }
+  .contact img { height: 7vh; }
+  .circle::before { width: 280px; height: 280px; }
+  .circle::after  { width: 320px; height: 320px; }
+}
+
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 8px;
+  }
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .navbar ul li a {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  .navbar .header {
+    position: static;
+    transform: none;
+    justify-content: center;
+  }
+
+  /* Welcome */
+  .welcome {
+    padding-top: 18vh;
+    justify-content: flex-start;
+    gap: 1vh;
+  }
+  .welcome h3 { font-size: 4vh; }
+  .welcome h2 { font-size: 3vh; }
+  .welcome p  { font-size: 1.8vh; max-width: 90vw; }
+  #role-tag   { font-size: 2.2vh; }
+
+  .terminal {
+    width: 92vw;
+    font-size: 1.3vh;
+  }
+
+  /* About text */
+  .abouttext p { font-size: 2.2vh; }
+
+  /* Skills: 2-column grid with smaller gauges */
+  #Skill-List {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 95vw;
+    justify-items: center;
+  }
+  #Skill-List li {
+    width: 140px;
+  }
+  #Skill-List li svg {
+    width: 140px;
+    height: 77px;
+  }
+  #Skill-List h5 {
+    font-size: 13px;
+  }
+
+  /* Certifications: smaller cubes, tighter grid */
+  .cubeList {
+    max-width: 95vw;
+    gap: 6px;
+  }
+  .cube,
+  .cube-container,
+  .CubeTop,
+  .CubeBottem {
+    width: 130px;
+    height: 130px;
+  }
+  .CubeTop    { transform: translateZ(65px); }
+  .CubeBottem { transform: rotateX(-90deg) translateZ(-65px); }
+  .CubeBottem img { max-width: 115px; margin-top: 6px; }
+  .static-logo { width: 60%; }
+
+  /* Projects */
+  .project {
+    width: 95vw;
+    position: relative;
+    margin-bottom: 5vh;
+    padding: 8vh 4vw 10vh;
+    overflow: hidden;
+  }
+  .project .logo {
+    position: static;
+    width: 50vw;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 2vh auto;
+  }
+  .project .Description {
+    position: static;
+    max-width: 100%;
+    font-size: 1.8vh;
+    line-height: 3vh;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .project-btn {
+    position: absolute;
+    bottom: 16px;
+    left: 4vw;
+  }
+
+  /* Talabro card: pin to bottom-left, don't center */
+  .talabro-card {
+    width: 28vw;
+    height: 20vh;
+    left: 2vw;
+    top: auto;
+    bottom: 50px;
+    transform: rotate(-5deg);
+  }
+
+  /* Suit-edge borders — clipped by overflow:hidden on .project */
+  .suit-edge { font-size: 1.4vh; }
+
+  /* Accomplishments: vertical stack, no horizontal scroll */
+  .accomplishment-wrapper { height: auto; }
+  .sticky { position: static; height: auto; overflow: visible; }
+  .accomplishment-track {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: none !important; /* override JS translateX */
+  }
+  .card { width: 90vw; margin: 2vh auto; }
+
+  /* Contact */
+  .contact-inner {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .circle {
+    width: 90vw;
+    height: 70vw;
+  }
+  .item { --radius: 35vw; }
+  .contact img { height: 6vh; }
+  .circle::before { width: 220px; height: 220px; }
+  .circle::after  { width: 260px; height: 260px; }
+  .contact-side { width: 90vw; text-align: center; align-items: center; }
+}
