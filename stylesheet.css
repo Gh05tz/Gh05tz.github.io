@@ -1009,15 +1009,9 @@
 
 
 
-/* ============================================
-   RESPONSIVE DESIGN — paste at bottom of stylesheet.css
-   Breakpoints: tablet ≤ 900px | mobile ≤ 600px
-   ============================================ */
 
-/* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
 
-  /* Navbar */
   .navbar ul li a {
     font-size: 14px;
     padding: 0.6vh 1.2vw;
@@ -1026,7 +1020,6 @@
   .navbar .header { font-size: 18px; }
   .navbar .header img { height: 4vh; }
 
-  /* Welcome: remove left offsets, center everything */
   .welcome h2,
   .welcome h3,
   .welcome p,
@@ -1036,7 +1029,7 @@
     text-align: center;
   }
 
-  /* Terminal */
+ 
   .terminal {
     position: static;
     transform: none;
@@ -1044,7 +1037,7 @@
     margin: 3vh auto 0;
   }
 
-  /* Projects */
+  
   .project {
     width: 90vw;
     height: auto;
@@ -1077,10 +1070,10 @@
   }
   .Contibution ul { justify-content: flex-start; }
 
-  /* Skills */
+ 
   #Skill-List li { width: 170px; }
 
-  /* Certifications */
+ 
   .cube,
   .cube-container,
   .CubeTop,
@@ -1092,13 +1085,13 @@
   .CubeBottem { transform: rotateX(-90deg) translateZ(-80px); }
   .CubeBottem img { max-width: 140px; }
 
-  /* Accomplishments */
+
   .card { width: 80vw; height: auto; min-height: 50vh; padding: 4vh 4vw; }
   .card .image { width: 60vw; height: auto; }
   .card h1 { font-size: 2.5vh; }
   .card h2 { font-size: 2vh; }
 
-  /* Contact */
+  
   .circle { width: 70vw; height: 60vh; }
   .item { --radius: 27vw; }
   .contact img { height: 7vh; }
@@ -1107,10 +1100,10 @@
 }
 
 
-/* ── Mobile (≤ 600px) ── */
+
 @media (max-width: 600px) {
 
-  /* Navbar */
+ 
   .navbar {
     flex-direction: column;
     height: auto;
@@ -1133,7 +1126,6 @@
     justify-content: center;
   }
 
-  /* Welcome */
   .welcome {
     padding-top: 18vh;
     justify-content: flex-start;
@@ -1149,10 +1141,8 @@
     font-size: 1.3vh;
   }
 
-  /* About text */
   .abouttext p { font-size: 2.2vh; }
 
-  /* Skills: 2-column grid with smaller gauges */
   #Skill-List {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1171,7 +1161,7 @@
     font-size: 13px;
   }
 
-  /* Certifications: smaller cubes, tighter grid */
+ 
   .cubeList {
     max-width: 95vw;
     gap: 6px;
@@ -1188,7 +1178,7 @@
   .CubeBottem img { max-width: 115px; margin-top: 6px; }
   .static-logo { width: 60%; }
 
-  /* Projects */
+  
   .project {
     width: 95vw;
     position: relative;
@@ -1219,7 +1209,7 @@
     left: 4vw;
   }
 
-  /* Talabro card: pin to bottom-left, don't center */
+  
   .talabro-card {
     width: 28vw;
     height: 20vh;
@@ -1229,21 +1219,20 @@
     transform: rotate(-5deg);
   }
 
-  /* Suit-edge borders — clipped by overflow:hidden on .project */
+  
   .suit-edge { font-size: 1.4vh; }
 
-  /* Accomplishments: vertical stack, no horizontal scroll */
   .accomplishment-wrapper { height: auto; }
   .sticky { position: static; height: auto; overflow: visible; }
   .accomplishment-track {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    transform: none !important; /* override JS translateX */
+    transform: none !important; 
   }
   .card { width: 90vw; margin: 2vh auto; }
 
-  /* Contact */
+ 
   .contact-inner {
     flex-direction: column;
     gap: 20px;

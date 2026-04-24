@@ -116,7 +116,7 @@ const wrapper = document.querySelector('.accomplishment-wrapper');
 const track = document.querySelector('.accomplishment-track');
 
 window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 600) return; // skip horizontal scroll on mobile
+    if (window.innerWidth <= 600) return; 
 
     const rect = wrapper.getBoundingClientRect();
 
@@ -130,7 +130,6 @@ window.addEventListener('scroll', () => {
     track.style.transform = `translateX(${centerOffset - (clamped * (scrollDistance + centerOffset))}px)`;
 });
 
-// Clear JS transform if window is resized to mobile
 window.addEventListener('resize', () => {
     if (window.innerWidth <= 600) {
         track.style.transform = 'none';
