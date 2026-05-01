@@ -59,6 +59,7 @@ const skills = [
   new Skill("Python", 90),
   new Skill("JavaScript", 70),
   new Skill("Java", 35),
+  new Skill("Website Development", 80),
 
   new Skill("Frontend Development (HTML, CSS)", 64),
   new Skill("Responsive Web Design", 80),
@@ -87,29 +88,31 @@ function getSkillLevel(score) {
     if (score >= 25) return "Basic";
     return "Beginner";
 }
-skills.forEach(skill => {
-    const skillDiv = document.createElement('div');
-    skillDiv.innerHTML = `
-    <li>
-        <svg width="200" height="110" viewBox="0 0 200 110">
-            <path d="M 20 100 A 80 80 0 0 1 180 100"
-                  fill="none" stroke="#1a3a4a" stroke-width="12"/>
-            <path d="M 20 100 A 80 80 0 0 1 180 100"
-                  fill="none" stroke="#C7F9CC" stroke-width="12" stroke-linecap="round"
-                  stroke-dasharray="251" stroke-dashoffset="251"/>
-            <text x="100" y="90" text-anchor="middle" fill="#C7F9CC" font-size="24">
-                ${getSkillLevel(skill.percent)}
-            </text>
-        </svg>
-        <h5>${skill.skill}</h5>
-    </li>`;
-    skillContainer.appendChild(skillDiv);
+if (skillContainer){
+    skills.forEach(skill => {
+        const skillDiv = document.createElement('div');
+        skillDiv.innerHTML = `
+        <li>
+            <svg width="200" height="110" viewBox="0 0 200 110">
+                <path d="M 20 100 A 80 80 0 0 1 180 100"
+                    fill="none" stroke="#1a3a4a" stroke-width="12"/>
+                <path d="M 20 100 A 80 80 0 0 1 180 100"
+                    fill="none" stroke="#C7F9CC" stroke-width="12" stroke-linecap="round"
+                    stroke-dasharray="251" stroke-dashoffset="251"/>
+                <text x="100" y="90" text-anchor="middle" fill="#C7F9CC" font-size="24">
+                    ${getSkillLevel(skill.percent)}
+                </text>
+            </svg>
+            <h5>${skill.skill}</h5>
+        </li>`;
+        skillContainer.appendChild(skillDiv);
 
-    const path = skillDiv.querySelectorAll('path')[1];
-    const offset = 251 - (251 * skill.percent / 100);
-    path.style.transition = "stroke-dashoffset 1.5s ease";
-    path.style.strokeDashoffset = offset;
-});
+        const path = skillDiv.querySelectorAll('path')[1];
+        const offset = 251 - (251 * skill.percent / 100);
+        path.style.transition = "stroke-dashoffset 1.5s ease";
+        path.style.strokeDashoffset = offset;
+    });
+}
 
 
 const wrapper = document.querySelector('.accomplishment-wrapper');
